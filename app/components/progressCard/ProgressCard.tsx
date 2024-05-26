@@ -9,6 +9,7 @@ import { getCommonMovies } from "@/app/Api/getCommonMovies";
 import { getWorkoutProgress } from "@/app/Api/getWorkoutProgress";
 import { useDispatch } from "react-redux";
 import { setCourseId } from "@/app/store/slices/courseSlice";
+import { openModal } from "@/app/store/slices/modalSlice";
 
 interface ProgressCardProps {
   setProgressModal: (value: boolean) => void;
@@ -43,6 +44,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         setWorkoutsList(workoutsListData);
       } catch (error) {
         console.error("Ошибка при получении списка тренировок курса:", error);
+        dispatch(openModal("Ошибка при получении списка тренировок курса"));
       }
     };
 
@@ -80,6 +82,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         }
       } catch (error) {
         console.error("Ошибка при получении данных о тренировках:", error);
+        dispatch(openModal("Ошибка при получении данных о тренировках"));
       }
     };
 
@@ -126,6 +129,7 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
         setTotalMade(totalMade);
       } catch (error) {
         console.error("Ошибка при получении данных о тренировках:", error);
+        dispatch(openModal("Ошибка при получении данных о тренировках"));
       }
     };
 
@@ -150,11 +154,11 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
   }
 
   return (
-    <div className="mx-auto bg-white text-[18px]">
+    <div className="mx-auto w-full bg-white text-[18px]">
       <div className="leading-110 mt-5 mb-2.5">
         Прогресс {calculatePercentage(totalMade, totalQuantity)}%
       </div>
-      <div className="w-[300px] h-[6px] bg-[#f7f7f7] mb-10">
+      <div className="max-[375px]:w-[200px] h-[6px] bg-[#f7f7f7] mb-10">
         <div
           className="h-[6px] bg-[#00c1ff] rounded-[50px]"
           style={{
@@ -162,12 +166,15 @@ export const ProgressCard: React.FC<ProgressCardProps> = ({
           }}
         ></div>
       </div>
+      <div className="flex justify-center">
       <button
         onClick={handleProgress}
-        className="btnGreen py-4 px-[26px] rounded-[46px] w-[300px] h-[52px]"
+        className="btnGreen py-4 px-[26px] rounded-[46px] max-[375px]:w-[200px] h-[52px]"
       >
         {buttonText}
       </button>
+      </div>
+      
     </div>
   );
 };

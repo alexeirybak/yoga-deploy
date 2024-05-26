@@ -118,10 +118,10 @@ export const Login: React.FC<LoginProps> = ({
 
   return (
     <div className="modalOverlay">
-      <div className="modalContent w-[343px] sm:w-[360px]">
+      <div className="modalContent">
         <div className="relative">
           <button
-            className="text-2xl w-5 absolute pl-2.5 right-0"
+            className="text-2xl w-5 absolute pl-2.5 mr-2 right-0"
             onClick={handleClose}
           >
             &#10060;

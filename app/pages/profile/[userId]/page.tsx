@@ -125,6 +125,7 @@ const UserProfile: React.FC = () => {
       router.push("/");
     } catch (error) {
       console.error("Ошибка при выходе из системы:", error);
+      dispatch(openModal("Ошибка при выходе из системы"));
     }
   };
 

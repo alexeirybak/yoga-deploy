@@ -8,6 +8,7 @@ import { SetStateAction } from "react";
 import { useDispatch } from "react-redux";
 import { removeUser } from "@/app/store/slices/userSlice";
 import { getAuth, signOut } from "firebase/auth";
+import { openModal } from "@/app/store/slices/modalSlice";
 
 interface TopMenuProps {
   userEmail: string | null;
@@ -34,6 +35,7 @@ export const TopMenu: React.FC<TopMenuProps> = ({
       router.push("/");
     } catch (error) {
       console.error("Ошибка при выходе из системы:", error);
+      dispatch(openModal("Ошибка при выходе из системы"));
     }
   };
 

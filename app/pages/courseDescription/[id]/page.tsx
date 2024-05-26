@@ -95,7 +95,7 @@ export default async function CourseDescription({ params: { id } }: Props) {
           ))}
         </div>
       </div>
-      <div className="block xl:hidden relative bgLineTop w-[334px] h-[347px] right-0 bottom-0 overflow-hidden mx-auto -mt-[60px] -mb-[120px] z-10">
+      <div className="block xl:hidden relative bgLineTop max-[375px]:w-[280px] max-[375px]:h-[290px] h-[347px] right-0 bottom-0 overflow-hidden mx-auto -mt-[60px] -mb-[120px] z-10">
           <div className="bgMan absolute w-full h-full right-0 bottom-0 overflow-hidden"></div>
         </div>
       <div className="relative path rounded-[30px] p-[30px] md:p-10 z-10 bg-white">

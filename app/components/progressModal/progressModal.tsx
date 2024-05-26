@@ -62,10 +62,10 @@ export const ProgressModal: React.FC<ProgressModalProps> = ({
 
   return (
     <div className="modalOverlay ">
-      <div className="modalContentProgress w-[343px] md:w-[460px]">
+      <div className="modalContentProgress">
         <div className="relative">
           <button
-            className="text-2xl w-5 pl-2.5 absolute right-0"
+            className="text-2xl w-5 pl-2.5 mr-2 absolute right-0"
             onClick={handleProgress}
           >
             &#10060;

@@ -10,7 +10,7 @@ import { TopMenu } from "../menu/Menu";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { closeModal } from "@/app/store/slices/modalSlice";
+import { closeModal, openModal } from "@/app/store/slices/modalSlice";
 import { RootState } from "@/app/store";
 import {
   openLogin,
@@ -54,18 +54,14 @@ export const Header: React.FC = () => {
                 username: userData.displayName || "Имя пользователя",
               })
             );
-          } else {
-            dispatch(removeUser());
-          }
+          } 
         } catch (error) {
           console.error(
             "Ошибка при получении данных пользователя из Firestore:",
             error
           );
-          dispatch(removeUser());
+          dispatch(openModal("Ошибка при получении данных пользователя"));
         }
-      } else {
-        dispatch(removeUser());
       }
     });
  
@@ -97,7 +93,7 @@ export const Header: React.FC = () => {
   }, [modal.isOpen, dispatch]);
  
   return (
-    <header className="max-w-[1440px] flex flex-row gap-y-5 justify-between align-center px-[16px] lg:px-[140px] mb-[40px] md:mb-[60px] pt-12 mx-auto">
+    <header className="max-w-[1440px] flex flex-row gap-x-10 justify-between align-center px-[16px] lg:px-[140px] mb-[40px] md:mb-[60px] pt-12 mx-auto">
       <div className="flex flex-col gap-y-5">
         <Link href={`/`}>
           <Image src="/logo.png" alt="logo" width={220} height={35} />
@@ -119,7 +115,7 @@ export const Header: React.FC = () => {
               alt="Аватар"
               width={41}
               height={41}
-              className="mr-5"
+              className="mr-5 max-[375px]:mr-0"
             />
             <div className="flex justify-center text-center md:text-[18px] leading-110 hidden md:block">
               {user.username || user.email}
@@ -129,7 +125,7 @@ export const Header: React.FC = () => {
               alt="Открыть меню"
               width={15}
               height={15}
-              className="ml-3"
+              className="ml-3 mr-2"
               style={{
                 transform: isMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
                 transition: "transform 0.8s ease",

@@ -114,7 +114,7 @@ export const Card: React.FC<CardProps> = ({ cardData, isSubscribed }) => {
 
   return (
     <div
-      className="flex flex-col relative bg-white rounded-3xl card pb-[15px] w-[343px] sm:w-[360px]"
+      className="flex flex-col relative bg-white rounded-3xl card pb-[15px]"
     >
       {isSubscribed ? (
         <UnsubscribeButton handleUnsubscribe={handleUnsubscribeClick} />

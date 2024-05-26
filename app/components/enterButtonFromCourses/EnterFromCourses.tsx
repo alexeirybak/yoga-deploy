@@ -21,10 +21,11 @@ export const EnterButtonFromCourses = ({ courseId, courseName }: Props) => {
   ) => {
     if (isAuth) {
       const cardData: CardData = {
-        _id: courseId, name: courseName,
+        _id: courseId,
+        name: courseName,
         title: "",
         description: "",
-        imageUrl: ""
+        imageUrl: "",
       };
       await handleSubscribe(event, cardData);
       dispatch(openModal("Вы успешно подписались"));

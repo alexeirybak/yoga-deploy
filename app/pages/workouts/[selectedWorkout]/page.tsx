@@ -38,6 +38,7 @@ export default function Workout() {
       }
     } catch (error) {
       console.error("Ошибка при получении данных о тренировке:", error);
+      dispatch(openModal("Ошибка при получении данных о тренировке"));
     }
   }, [id, user]);
 
@@ -109,7 +110,7 @@ export default function Workout() {
         fetchWorkoutData();
       } catch (error) {
         console.error("Ошибка при сохранении прогресса:", error);
-        dispatch(openModal("Ошибка при сохранении прогресса:"));
+        dispatch(openModal("Ошибка при сохранении прогресса"));
       }
     }
 
@@ -154,7 +155,7 @@ export default function Workout() {
             ></iframe>
           </div>
         )}
-        <div className="w-full max-w-[1160px] bg-white modalContentProgress flex flex-col md:block">
+        <div className="w-full max-w-[1160px] bg-white flex flex-col md:block contentProgress">
           <h2 className="text-[32px] leading-110 mb-5">
             Упражнения тренировки “{workoutData.name}”
           </h2>

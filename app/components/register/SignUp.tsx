@@ -111,11 +111,10 @@ export const Register: React.FC<RegisterProps> = ({
           token: idToken,
         })
       );
-      await signInWithEmailAndPassword(auth, email, password);
 
       handleClose();
       setIsRegistering(false);
-      dispatch(openModal("Вы успешно зарегистрировались"));
+      dispatch(openModal("Вы успешно зарегистрировались. Войдите в систему"));
     } catch (error) {
       const typedError = error as Error;
       if (typedError.message.includes("auth/email-already-in-use")) {
@@ -129,10 +128,10 @@ export const Register: React.FC<RegisterProps> = ({
 
   return (
     <div className="modalOverlay">
-      <div className="modalContent w-[343px] sm:w-[360px]">
+      <div className="modalContent w-[343px] sm:max-w-[360px]">
         <div className="relative">
           <button
-            className="text-2xl pl-2.5 w-5 absolute right-0"
+            className="text-2xl pl-2.5 mr-2 w-5 absolute right-0"
             onClick={handleClose}
           >
             &#10060;

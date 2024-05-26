@@ -9,7 +9,7 @@ export const Popup: React.FC<PopUpProps> = ({ message }) => {
     <div className="modalOverlay">
       <div className="modalContent">
         <div className="relative">
-          <p className="text-[24px] md:text-[32px] mx-auto text-center mb-10">
+          <p className="text-[24px] mx-auto text-center mb-10">
             {message}
           </p>
           <Image
