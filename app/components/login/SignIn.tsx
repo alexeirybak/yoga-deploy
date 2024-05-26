@@ -119,20 +119,23 @@ export const Login: React.FC<LoginProps> = ({
   return (
     <div className="modalOverlay">
       <div className="modalContent">
-        <div className="relative">
-          <button
-            className="text-2xl w-5 absolute pl-2.5 mr-2 right-0"
-            onClick={handleClose}
-          >
-            &#10060;
-          </button>
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={220}
-            height={35}
-            className="mx-auto"
-          />
+        <div>
+          <div className="flex flex-row flex-wrap justify-end">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={220}
+              height={35}
+              className="mx-auto"
+            />
+            <button
+              className="w-4"
+              onClick={handleClose}
+            >
+              &#10060;
+            </button>
+          </div>
+
           <div className="flex flex-col gap-y-2.5 mt-12 mb-2.5">
             <input
               type="email"

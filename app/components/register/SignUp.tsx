@@ -4,7 +4,11 @@ import Image from "next/image";
 import { MouseEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slices/userSlice";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { validateEmail, validatePassword } from "@/app/services/validation";
 import { openModal } from "@/app/store/slices/modalSlice";
 
@@ -129,20 +133,22 @@ export const Register: React.FC<RegisterProps> = ({
   return (
     <div className="modalOverlay">
       <div className="modalContent w-[343px] sm:max-w-[360px]">
-        <div className="relative">
-          <button
-            className="text-2xl pl-2.5 mr-2 w-5 absolute right-0"
-            onClick={handleClose}
-          >
-            &#10060;
-          </button>
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={220}
-            height={35}
-            className="mx-auto"
-          />
+        <div>
+          <div className="flex flex-row flex-wrap justify-end">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={220}
+              height={35}
+              className="mx-auto"
+            />
+            <button
+              className="w-4"
+              onClick={handleClose}
+            >
+              &#10060;
+            </button>
+          </div>
 
           <div className="flex flex-col gap-y-2.5 mt-12 mb-[10px]">
             <input
@@ -166,10 +172,13 @@ export const Register: React.FC<RegisterProps> = ({
               value={repeatPassword}
               onChange={handleRepeatPassword}
               style={{ color: passEqual ? "green" : "#db0030" }}
-              className="inputSign"            />
+              className="inputSign"
+            />
           </div>
           <div className="min-h-[30px] my-2 text-sm">
-            {error && <p className="text-[#db0030] text-center leading-110">{error}</p>}
+            {error && (
+              <p className="text-[#db0030] text-center leading-110">{error}</p>
+            )}
 
             {!passEqual && (
               <div className="text-[#db0030] text-center">
