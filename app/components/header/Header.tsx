@@ -60,7 +60,6 @@ export const Header: React.FC = () => {
             "Ошибка при получении данных пользователя из Firestore:",
             error
           );
-          dispatch(openModal("Ошибка при получении данных пользователя"));
         }
       }
     });
